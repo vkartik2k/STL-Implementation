@@ -46,7 +46,7 @@ public:
 		for(int i=0; i<len; i++) buffer[i] = defaultVal;
 	}
 
-	void push_back(int val) {
+	void push_back(T val) {
 		if(len>=capacity) {
 			T * buffer2 = new T[(int)(1.5*capacity)];
 			for(int i=0; i<len; i++) buffer2[i] = buffer[i];
@@ -80,13 +80,13 @@ public:
 	}
 
 	T at(int index) {
-		if(index >=0 && index<size) return buffer[index];
-		else throw "InValid Index";
+		if(index >=0 && index<len) return buffer[index];
+		else throw "Invalid Index";
 	}
 
 	T &operator[](int index) {
 		if(index >=0 && index<len) return buffer[index];
-		else throw "InValid Index";
+		else throw "Invalid Index";
 	}
 
 	bool empty() {
