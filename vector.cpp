@@ -18,6 +18,12 @@ public:
         for(int i=0; i<len; i++) buffer[i] = defaultVal;
     }
 
+    vector(const vector<T> &v) {
+        capacity = len = v.len;
+        buffer = new T[capacity];
+        for(int i=0; i<len; i++) buffer[i] = v.buffer[i];
+    }
+
     class iterator {
         T * _curr;
     public:
@@ -122,10 +128,13 @@ int main() {
         cin>>temp;
         v.push_back(temp);
     }
+    vector<int> v2 = v;
     for(int i=0; i<v.size(); i++) cout<<v[i]<<" ";
     cout<<endl;
     v.pop_back();
     for(int i=0; i<v.size(); i++) cout<<v[i]<<" ";
-    cout<<endl;
+    cout<<endl<<"V2 ";
+	for(int i=0; i<v2.size(); i++) cout<<v2[i]<<" ";
+	cout<<endl;
     cout<<v.empty()<<endl;
 }
